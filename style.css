@@ -53,6 +53,23 @@ td {
     border: 1px solid black;
 }
 
+/* Tab navigation */
+.tab-nav {
+    text-align: center;
+    margin: 6px 0 16px;
+}
+
+.tab-link {
+    cursor: pointer;
+    font-size: 1rem;
+    color: black;
+}
+
+.tab-link.tab-active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 /* Section header */
 .section-header {
     text-align: center;
