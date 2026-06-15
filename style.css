@@ -1,0 +1,67 @@
+/* Page background */
+.page {
+    background-color: lightgray;
+}
+
+/* Header */
+.header {
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 70px;
+    height: 50px;
+}
+
+/* Subtitle under name */
+.subtitle {
+    text-align: center;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    background-color: whitesmoke;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    border: 1px solid black;
+
+    table:li{
+        margin-bottom: 20px; 
+    }
+}
+
+.main-table {
+    ul li{
+        margin-bottom: 10pt; 
+    }
+}
+
+.skills-table {
+    ul li{
+        margin-bottom: 10pt; 
+    }
+}
+
+td {
+    vertical-align: top;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+/* Section header */
+.section-header {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+}
