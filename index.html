@@ -27,13 +27,38 @@
     <div id="tab-portfolio">
 
         <div class="project-entry">
-            <h3>CFB Report Generator</h3>
-            <p>A Python-based tool that generates detailed pre-game reports for college football predictive analysis, pulling live data from a public API and formatting it for immediate use.</p>
-            <p><b>Tech:</b> Python, pandas, Requests, REST API</p>
+            <h3>Leverage Sports Data - <a href="https://leveragesportsdata.com">leveragesportsdata.com</a></h3>
+            <p>A full-stack sports analytics platform built for handicappers and serious bettors. The platform provides authenticated user accounts and a structured dashboard for browsing player profiles, game data, and performance trends. It is designed as a data tool, giving users the information and context needed to make informed decisions rather than providing picks or predictions directly.</p>
+            <p><b>Tech:</b> Next.js, TypeScript, Tailwind CSS, FastAPI, MySQL, Clerk, Stripe, VPS, pm2</p>
             <ul>
-                <li>Built ETL scripts to fetch, clean, and structure live game and team data from a public API</li>
-                <li>Automated report generation to eliminate manual data collection before each game</li>
-                <li>Designed output format to support downstream predictive modeling workflows</li>
+                <li>Built and deployed a full-stack web app with a Next.js frontend and a FastAPI backend, both hosted on a Linux VPS and managed with pm2</li>
+                <li>Integrated Clerk for authentication and Stripe for payments, with all access control enforced at the API layer</li>
+                <li>Designed a component system with reusable chart, table, stat, and UI primitives to keep the dashboard consistent and extensible</li>
+                <li>Connected to a MySQL database via FastAPI to serve live player, game, and team data across multiple statistical dimensions</li>
+            </ul>
+        </div>
+
+        <div class="project-entry">
+            <h3>MLB Database API</h3>
+            <p>The FastAPI backend that sits between the Leverage Sports Data frontend and the MySQL database. All data shown on the platform flows through this API, which handles authentication, rate limiting, and structured data access across players, teams, and games.</p>
+            <p><b>Tech:</b> FastAPI, Python, MySQL, VPS, pm2</p>
+            <ul>
+                <li>Built API key middleware that fails closed; unauthenticated requests are rejected before reaching any router</li>
+                <li>Implemented rate limiting middleware to control request volume per client</li>
+                <li>Organized endpoints into four routers (batters, pitchers, teams, games) with typed responses throughout</li>
+                <li>Deployed to a Linux VPS with pm2 and CORS locked to the production domain and local dev only</li>
+            </ul>
+        </div>
+
+        <div class="project-entry">
+            <h3>MLB Data Pipeline</h3>
+            <p>The automated ETL pipeline that keeps the Leverage Sports Data database current. A nightly orchestration script runs 27 sync steps in dependency order, pulling data from external APIs and writing it to MySQL. Supports both incremental daily updates and full date-range backfills, and sends a Discord summary on completion.</p>
+            <p><b>Tech:</b> Python, pandas, SQLAlchemy, MySQL, REST APIs, GitHub Actions</p>
+            <ul>
+                <li>Designed the sync order around data dependencies so downstream tables always have the upstream rows they need</li>
+                <li>Built retry logic into each step (up to 3 attempts) to handle transient API failures without aborting the full run</li>
+                <li>Included backfill mode via CLI flags to re-sync historical date ranges without changing any pipeline logic</li>
+                <li>Wrote audit and validation scripts to diagnose missing records and verify data integrity independently of the sync</li>
             </ul>
         </div>
 
