@@ -88,13 +88,16 @@
 
         <div class="project-entry">
             <h3>College Basketball Win Probability Model</h3>
-            <p>A binary classification model that generates probabilistic win predictions for upcoming college basketball games using lagged team performance and efficiency metrics as features. Achieved 77% accuracy on a held-out test set of approximately 7,000 games. Outputs a predicted winner and win percentage for each matchup, with per-game feature contribution breakdowns available on request.</p>
-            <p><b>Tech:</b> Python, XGBoost, scikit-learn, pandas, NumPy, MySQL</p>
+            <p>A binary classification model that generates probabilistic win predictions for upcoming college basketball games using lagged team performance and efficiency metrics as features. Achieved 77% accuracy on a held-out test set of approximately 7,000 games. Predictions feed into a downstream distribution system that computes edges against live betting odds, filters high-confidence picks, and delivers outputs to Discord, email, and X (Twitter) daily.</p>
+            <p><b>Tech:</b> Python, XGBoost, scikit-learn, pandas, NumPy, Matplotlib, Requests, MySQL</p>
             <ul>
                 <li>Engineered features using lagged game stats, rolling averages, and KenPom efficiency ratings, merging multiple data sources into a single training matrix</li>
                 <li>Enforced a strict chronological train/test split by date rather than by row to prevent temporal leakage</li>
                 <li>Extracted per-matchup feature contributions using XGBoost's prediction contribution output to explain individual predictions</li>
                 <li>Built a daily prediction pipeline that loads upcoming games, builds the feature set, drops incomplete records with logging, generates probabilities, and writes results to both CSV and the database</li>
+                <li>Integrated live betting odds to compute an edge for each prediction (model win probability minus market implied probability) and filtered top picks by edge threshold and odds range</li>
+                <li>Distributed daily outputs to a Discord server as Matplotlib-rendered PNG tables via webhook, with separate channels for full prediction sheets and top picks</li>
+                <li>Automated internal reporting via email with attached CSVs and a stats summary (prediction count, win percentage range, edge range), and built X post drafts for the top picks that are emailed to the team for publishing</li>
             </ul>
         </div>
 
@@ -189,6 +192,7 @@
                         <li>SQLAlchemy</li>
                         <li>Tailwind CSS</li>
                         <li>XGBoost</li>
+                        <li>Requests</li>
                         <li>pandas</li>
                         <li>NumPy</li>
                         <li>scikit-learn</li>
