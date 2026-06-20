@@ -39,6 +39,30 @@
         </div>
 
         <div class="project-entry">
+            <h3>Outcome Tracking and Reporting System</h3>
+            <p>An automated system that logs entries to a Google Sheet, aggregates performance metrics by category and date range, and distributes formatted summary reports to a Discord channel on a scheduled basis.</p>
+            <p><b>Tech:</b> Python, Google Sheets API (gspread), Discord Webhooks, GitHub Actions</p>
+            <ul>
+                <li>Designed a flat Google Sheet schema for structured data logging with an auto-calculated return formula</li>
+                <li>Built a gspread client supporting both manual entry and programmatic record appending from external systems</li>
+                <li>Wrote a stats module that calculates win-loss record, profit/loss, and ROI grouped by category across arbitrary date ranges</li>
+                <li>Automated daily execution via GitHub Actions cron with all credentials managed as repository-level secrets</li>
+            </ul>
+        </div>
+
+        <div class="project-entry">
+            <h3>Social Media Analytics Reporter</h3>
+            <p>An automated reporting tool that collects follower counts and engagement metrics across multiple platforms and accounts, logs weekly snapshots to Google Sheets, and distributes formatted week-over-week comparison reports via Discord.</p>
+            <p><b>Tech:</b> Python, X API, TikTok, Discord API, Google Sheets API (gspread), SQLite</p>
+            <ul>
+                <li>Built platform-specific collectors for X, TikTok, and Discord that extract followers, post counts, views, likes, and community size</li>
+                <li>Stored weekly snapshots in Google Sheets to build a historical record and enable week-over-week delta calculations</li>
+                <li>Formatted reports to show current values alongside the change from the prior week, with graceful fallback messaging per platform if a collector fails</li>
+                <li>Designed to support multiple accounts from a single config, with each account routing to its own Discord webhook</li>
+            </ul>
+        </div>
+
+        <div class="project-entry">
             <h3>MLB Database API</h3>
             <p>The FastAPI backend that sits between the Leverage Sports Data frontend and the MySQL database. All data shown on the platform flows through this API, which handles authentication, rate limiting, and structured data access across players, teams, and games.</p>
             <p><b>Tech:</b> FastAPI, Python, MySQL, VPS, pm2</p>
@@ -59,6 +83,30 @@
                 <li>Built retry logic into each step (up to 3 attempts) to handle transient API failures without aborting the full run</li>
                 <li>Included backfill mode via CLI flags to re-sync historical date ranges without changing any pipeline logic</li>
                 <li>Wrote audit and validation scripts to diagnose missing records and verify data integrity independently of the sync</li>
+            </ul>
+        </div>
+
+        <div class="project-entry">
+            <h3>College Basketball Win Probability Model</h3>
+            <p>A binary classification model that generates probabilistic win predictions for upcoming college basketball games using lagged team performance and efficiency metrics as features. Achieved 77% accuracy on a held-out test set of approximately 7,000 games. Outputs a predicted winner and win percentage for each matchup, with per-game feature contribution breakdowns available on request.</p>
+            <p><b>Tech:</b> Python, XGBoost, scikit-learn, pandas, NumPy, MySQL</p>
+            <ul>
+                <li>Engineered features using lagged game stats, rolling averages, and KenPom efficiency ratings, merging multiple data sources into a single training matrix</li>
+                <li>Enforced a strict chronological train/test split by date rather than by row to prevent temporal leakage</li>
+                <li>Extracted per-matchup feature contributions using XGBoost's prediction contribution output to explain individual predictions</li>
+                <li>Built a daily prediction pipeline that loads upcoming games, builds the feature set, drops incomplete records with logging, generates probabilities, and writes results to both CSV and the database</li>
+            </ul>
+        </div>
+
+        <div class="project-entry">
+            <h3>College Basketball Data Pipeline</h3>
+            <p>An incremental ETL pipeline that keeps a MySQL database of college basketball data current. Pulls game results and team stats from the CBBd API and efficiency ratings from KenPom on a daily basis, resuming from the most recent record in the database each run. Supports full historical backfills via date range arguments.</p>
+            <p><b>Tech:</b> Python, pandas, SQLAlchemy, MySQL, REST APIs</p>
+            <ul>
+                <li>Designed incremental sync logic that resumes from the latest game date in the database, avoiding redundant fetches</li>
+                <li>Integrated two external data sources with different schemas into a unified relational structure</li>
+                <li>Built backfill mode with date range arguments to rebuild or repair any historical window without changing pipeline logic</li>
+                <li>Managed credentials and connection config through environment variables for consistent behavior across local and production environments</li>
             </ul>
         </div>
 
