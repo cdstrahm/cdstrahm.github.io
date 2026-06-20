@@ -59,12 +59,19 @@
         </div>
 
         <div class="project-entry">
-            <h3>Multi-Channel Data Distribution Pipeline</h3>
-            <p>An automated daily pipeline that pulls structured data from a database and delivers it across three channels: Discord (as formatted image tables), internal email (as CSV attachments with a stats summary), and social media (as drafted posts ready for publishing). Built to be repeatable and low-maintenance once deployed.</p>
-            <p><b>Tech:</b> Python, Matplotlib, Requests, pandas, MySQL, Discord Webhooks, smtplib</p>
+            <h3>Output Distribution and Publishing Pipeline</h3>
+            <p>An automated daily pipeline that pulls structured data from a database and distributes it to stakeholders via email. Sends internal reports with attached CSV exports and a stats summary, and separately emails formatted social media post drafts to the team for publishing.</p>
+            <div class="project-images">
+                <div class="project-images-row">
+                    <img src="output_distribution_csv.png" alt="CSV export of daily records">
+                    <img src="outcome_distribution_preview_email.png" alt="Daily export email with stats summary and CSV attachment">
+                    <img src="outcome_distribution_posts_email.png" alt="Social post drafts email">
+                </div>
+                <p class="project-images-caption"><em>The CSV export (left), the internal daily report email with stats summary and attachment (center), and the social post drafts email (right)</em></p>
+            </div>
+            <hr>
+            <p><b>Tech:</b> Python, pandas, MySQL, smtplib</p>
             <ul>
-                <li>Rendered dataframes as styled PNG tables using Matplotlib, with auto-pagination to keep each image readable regardless of row count</li>
-                <li>Delivered images to Discord via webhooks, attaching each PNG as a file upload with a formatted header message, across separate channels for different data types</li>
                 <li>Emailed internal stakeholders daily with CSV exports attached and a plain-text summary covering record count, value range, and average</li>
                 <li>Generated social media post drafts by formatting the top-ranked records into ready-to-publish text, then routing them to the team via email</li>
             </ul>
