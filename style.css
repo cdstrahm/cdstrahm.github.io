@@ -106,6 +106,12 @@ td {
     align-items: flex-start;
 }
 
+.project-images-row figure {
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
 .project-images-row img {
     height: 280px;
     width: auto;
@@ -113,10 +119,10 @@ td {
     border: 1px solid #ccc;
 }
 
-.project-images-caption {
+.project-images-row figcaption {
     font-size: 0.85rem;
     color: #333;
-    margin: 6px 0 0;
+    margin-top: 5px;
 }
 
 /* Footer */

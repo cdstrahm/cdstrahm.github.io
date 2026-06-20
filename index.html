@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cooper Strahm Website</title>
     <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
 </head>
 
 <body class="page">
@@ -43,10 +44,15 @@
             <p>An automated system that logs entries to a Google Sheet, aggregates performance metrics by category and date range, and distributes formatted summary reports to a Discord channel on a scheduled basis.</p>
             <div class="project-images">
                 <div class="project-images-row">
-                    <img src="automated_tracker_spreadsheet.png" alt="Google Sheet entry log">
-                    <img src="automated_tracker_discord_message.png" alt="Weekly summary report delivered to Discord">
+                    <figure>
+                        <img src="automated_tracker_spreadsheet.png" alt="Google Sheet entry log">
+                        <figcaption><em>Entries logged to Google Sheets by date, category, and amount</em></figcaption>
+                    </figure>
+                    <figure>
+                        <img src="automated_tracker_discord_message.png" alt="Weekly summary report delivered to Discord">
+                        <figcaption><em>Weekly summary report posted automatically, showing net performance, category breakdowns, and week-over-week changes</em></figcaption>
+                    </figure>
                 </div>
-                <p class="project-images-caption"><em>Entries logged to Google Sheets (left) are aggregated weekly and posted automatically as a formatted summary to Discord (right)</em></p>
             </div>
             <hr>
             <p><b>Tech:</b> Python, Google Sheets API (gspread), Discord Webhooks, GitHub Actions</p>
@@ -63,11 +69,19 @@
             <p>An automated daily pipeline that pulls structured data from a database and distributes it to stakeholders via email. Sends internal reports with attached CSV exports and a stats summary, and separately emails formatted social media post drafts to the team for publishing.</p>
             <div class="project-images">
                 <div class="project-images-row">
-                    <img src="output_distribution_csv.png" alt="CSV export of daily records">
-                    <img src="outcome_distribution_preview_email.png" alt="Daily export email with stats summary and CSV attachment">
-                    <img src="outcome_distribution_posts_email.png" alt="Social post drafts email">
+                    <figure>
+                        <img src="output_distribution_csv.png" alt="CSV export of daily records">
+                        <figcaption><em>The exported CSV containing all records for the day</em></figcaption>
+                    </figure>
+                    <figure>
+                        <img src="outcome_distribution_preview_email.png" alt="Daily export email with stats summary and CSV attachment">
+                        <figcaption><em>Internal daily report email with a stats summary and the CSV attached</em></figcaption>
+                    </figure>
+                    <figure>
+                        <img src="outcome_distribution_posts_email.png" alt="Social post drafts email">
+                        <figcaption><em>Formatted social media post drafts emailed to the team for publishing</em></figcaption>
+                    </figure>
                 </div>
-                <p class="project-images-caption"><em>The CSV export (left), the internal daily report email with stats summary and attachment (center), and the social post drafts email (right)</em></p>
             </div>
             <hr>
             <p><b>Tech:</b> Python, pandas, MySQL, smtplib</p>
