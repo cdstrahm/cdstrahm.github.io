@@ -94,6 +94,31 @@ td {
     margin-top: 40px;
 }
 
+/* Project images */
+.project-images {
+    margin: 12px 0;
+}
+
+.project-images-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.project-images-row img {
+    height: 280px;
+    width: auto;
+    display: block;
+    border: 1px solid #ccc;
+}
+
+.project-images-caption {
+    font-size: 0.85rem;
+    color: #333;
+    margin: 6px 0 0;
+}
+
 /* Footer */
 .footer {
     text-align: center;
